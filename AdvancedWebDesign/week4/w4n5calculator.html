@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>w4n5calculator</title>
+    </head>  
+    <body>
+    <center>
+        <p>Monthly Mortgage Payment Calculator</p>
+        <p>(do not enter commas when entering the principal amount)</p>
+        <input id="principal" type="text" name="principal" placeholder="Principle">
+        <br/>
+        <input id="annualInterestRate" type="text" name="annualInterestRate" placeholder="Annual Interest Rate">
+        <br/>
+        <input id="termInYears" type="text" name="termInYears" placeholder="Term (in years)">
+        <br/>
+        <br/>
+        <button onclick="monthlyPayment()">Enter</button>
+        <br/>
+        <br/>
+        <h1 id="print"></h1>
+
+        <script>
+            function monthlyPayment() {
+                var principal = parseInt(document.getElementById("principal").value);
+                var monthlyInterestRate = (document.getElementById("annualInterestRate").value) / 100 / 12;
+                var termInMonths = parseInt(document.getElementById("termInYears").value) * 12;
+                var monthlyPayment = (principal * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -termInMonths));
+
+                monthlyPayment = Math.round(monthlyPayment * 100) / 100;
+                document.getElementById("print").innerHTML = "Your monthly payment is: $" +
+                        monthlyPayment;
+            }
+        </script>
+    </center>
+    </body>
+</html>

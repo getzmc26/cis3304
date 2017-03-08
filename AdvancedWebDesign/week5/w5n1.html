@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Awesome Modern Art</title>
+        <style>
+            body {
+                background-color: #949494;             
+            }
+            canvas { 
+                background: #d2d2d2; 
+            }
+        </style>
+    </head>
+    <body>
+    <center>
+        <h1>Matt's Awesome Modern Art Page</h1>
+        <canvas id="canvas" width="800" height="500"></canvas>
+
+        <script>
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            var movingX = canvas.width / 2;
+            var movingY = canvas.height - 30;
+            var dx = 2;
+            var dy = -2;
+
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            function drawCircle(ctx) {
+                var x = Math.floor((Math.random() * 800)) + 1;
+                var y = Math.floor((Math.random() * 500)) + 1;
+                var size = Math.floor((Math.random() * 100) + 10);
+
+                ctx.beginPath();
+                ctx.arc(x, y, size, 0, Math.PI * 2);
+                ctx.fillStyle = getRandomColor();
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            function drawTriangle(ctx) {
+                var x = Math.floor((Math.random() * 800)) + 1;
+                var y = Math.floor((Math.random() * 500)) + 1;
+                var width = Math.floor((Math.random() * 200)) + 10;
+                var height = Math.floor((Math.random() * 150)) + 10;
+
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(x + width / 2, y + height);
+                ctx.lineTo(x - width / 2, y + height);
+                ctx.fillStyle = getRandomColor();
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            function drawRectangle(ctx) {
+                var x = Math.floor((Math.random() * 800)) + 1;
+                var y = Math.floor((Math.random() * 500)) + 1;
+                var width = Math.floor((Math.random() * 200) + 10);
+                var height = Math.floor((Math.random() * 100) + 10);
+
+                ctx.beginPath();
+                ctx.rect(x, y, width, height);
+                ctx.fillStyle = getRandomColor();
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            function drawArt() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                for (i = 0; i < 25; i++) {
+                    drawCircle(ctx);
+                    drawTriangle(ctx);
+                    drawRectangle(ctx);
+                }
+                x += dx;
+                y += dy;
+            }
+
+            setInterval(drawArt, 1000);
+        </script>
+    </center>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>w4n4animation</title>
+        <style>
+            #container {
+                padding-top: 6px;     
+                padding-bottom: 2px;  
+                width: 600px;
+                height: 600px;
+                position: relative;
+                outline: 4px solid black;
+                background: black;
+            }
+            #animate {  
+                left:250px;   
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                outline: 5px solid white;
+                background-color: red;
+            }
+        </style>
+    </head>  
+    <body>
+        <p>
+            <button onclick="myMove()">Click Me</button>
+        </p> 
+        <div id ="container">
+            <div id ="animate"></div>
+        </div>
+        <script>
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+            function myMove() {
+                var elem = document.getElementById("animate");
+                var pos = 0;
+                var id = setInterval(frame, 10);
+                function frame() {
+                    if (pos == 500) {
+                        clearInterval(id);
+                    } else {
+                        pos++;
+                        container.style.backgroundColor = getRandomColor();
+                        animate.style.backgroundColor = getRandomColor();
+                        animate.style.outlineColor = getRandomColor();
+                        elem.style.top = pos + 'px';
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

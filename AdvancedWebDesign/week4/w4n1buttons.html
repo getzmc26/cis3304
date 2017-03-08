@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            w4n1buttons
+        </title>
+    </head>
+    <body>
+        <button onclick= "changeRed()">Red</button>
+        <button onclick= "changeGreen()">Green</button>
+        <button onclick= "changeBlue()">Blue</button>
+
+        <br/>
+
+        <h1 id="p1">Matt's Awesome Page</h1>
+
+        <script>
+            function changeRed() {
+                document.body.style.background = "red";
+                p1.style.color = "white";
+                p1.style.fontSize = "40px";
+
+            }
+            function changeGreen() {
+                document.body.style.background = "green";
+                p1.style.color = "grey";
+                p1.style.fontSize = "50px";
+            }
+            function changeBlue() {
+                document.body.style.background = "blue";
+                p1.style.color = "yellow";
+                p1.style.fontSize = "60px";
+            }
+        </script>	
+    </body>
+</html>

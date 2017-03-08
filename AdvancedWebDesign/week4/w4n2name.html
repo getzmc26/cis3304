@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>
+            w4n2name
+        </title>
+    </head>
+    <body>
+        <p>Please enter your first and last name, then click enter.</p>
+        <br/>
+        <input id="first" type="text" name="name" placeholder="First">
+        <br/>
+        <input id="last" type="text" name="name" placeholder="Last">
+        <br/>
+        <br/>
+        <button onclick="printGreeting()">Enter</button>
+        <br/>
+        <h1 id="print"></h1>
+
+        <script>
+            function printGreeting() {
+                document.getElementById("print").innerHTML = "Nice to meet you, " +
+                        document.getElementById("first").value + " " + document.getElementById("last").value + "!";
+            }
+        </script>		
+    </body>
+</html>
